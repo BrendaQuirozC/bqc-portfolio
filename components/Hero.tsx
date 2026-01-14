@@ -2,10 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const [text, setText] = useState('')
-  const fullText = 'Brenda Quiroz C'
+  const [photoLoading, setPhotoLoading] = useState(true)
+  const [photoError, setPhotoError] = useState(false)
+  const fullText = 'Brenda Quiroz C.'
   
   useEffect(() => {
     let index = 0
@@ -19,7 +22,16 @@ export default function Hero() {
     }, 100)
     
     return () => clearInterval(timer)
-  }, [])
+  }, []);
+
+  const handleImageLoad = () => {
+    setPhotoLoading(false)
+  }
+
+  const handleImageError = () => {
+    setPhotoLoading(false)
+    setPhotoError(true)
+  }
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -120,7 +132,6 @@ export default function Hero() {
               <span className="text-mocha font-medium">clean code</span>.
             </motion.p>
 
-            {/* Stats - modern bento-style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -132,16 +143,15 @@ export default function Hero() {
                 <div className="text-xs text-slate">Years</div>
               </div>
               <div className="glass-dark p-4 rounded-2xl text-center">
-                <div className="text-3xl font-display font-bold text-coral mb-1">15+</div>
+                <div className="text-3xl font-display font-bold text-coral mb-1">7+</div>
                 <div className="text-xs text-slate">Projects</div>
               </div>
               <div className="glass-dark p-4 rounded-2xl text-center">
-                <div className="text-3xl font-display font-bold text-sage mb-1">4</div>
-                <div className="text-xs text-slate">Languages</div>
+                <div className="text-3xl font-display font-bold text-sage mb-1">∞</div>
+                <div className="text-xs text-slate">Coffees</div>
               </div>
             </motion.div>
 
-            {/* CTA Buttons - refined */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -206,7 +216,6 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Visual element (can add photo or illustration) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -218,12 +227,41 @@ export default function Hero() {
               <div className="absolute -inset-8 bg-gradient-to-br from-peach/20 via-mocha/10 to-sage/20 rounded-[3rem] rotate-3"></div>
               <div className="absolute -inset-6 bg-gradient-to-tr from-coral/20 via-mocha-light/10 to-peach/20 rounded-[3rem] -rotate-3"></div>
               
-              {/* Main content area - placeholder for photo */}
               <div className="relative glass p-12 rounded-[2.5rem] aspect-square flex items-center justify-center">
-                <div className="text-center space-y-6">
-                  <div className="text-8xl font-display font-bold text-mocha/20">BQ</div>
-                  <p className="text-slate text-sm">[ Photo placeholder ]</p>
-                </div>
+
+                {photoLoading && (
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-center space-y-6"
+                  >
+                    <div className="text-8xl font-display font-bold text-mocha/20">BQ</div>
+                    <p className="text-slate text-sm">[ Loading... ]</p>
+                    {/* Spinner opcional */}
+                    <div className="w-8 h-8 border-4 border-mocha/20 border-t-mocha rounded-full animate-spin mx-auto"></div>
+                  </motion.div>
+                )}
+
+                {/* Imagen real */}
+                {!photoError && (
+                  <Image 
+                  src="/me.jpg"
+                  alt="Brenda Quiroz"
+                  width={500}
+                  height={500}
+                  className="rounded-[2rem]"
+                  priority // Carga primero
+                  onLoad={() => setPhotoLoading(false)}
+                />
+                )}
+
+                {/* Error fallback */}
+                {photoError && (
+                  <div className="text-center space-y-6">
+                    <div className="text-8xl font-display font-bold text-mocha/20">BQ</div>
+                    <p className="text-slate text-sm">[ Photo coming soon ]</p>
+                  </div>
+                )}
               </div>
 
               {/* Floating badges */}
