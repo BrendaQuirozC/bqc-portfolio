@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Quick links */}
           <div className="flex gap-4 text-sm text-text-secondary">
             <a
-              href="https://github.com/brendaquiroz"
+              href="https://github.com/brendaquirozc"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent-green transition-colors duration-300"

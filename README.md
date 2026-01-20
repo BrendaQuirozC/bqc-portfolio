@@ -35,7 +35,7 @@ Portfolio profesional desarrollado con Next.js 14, TypeScript, Tailwind CSS y Fr
 
 1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/brendaquiroz/portfolio.git
+git clone https://github.com/brendaquirozc/bqc-portfolio.git
 cd portfolio-brenda
 ```
 
@@ -187,7 +187,7 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 - **Email**: brendaqc@hotmail.com
 - **LinkedIn**: [linkedin.com/in/brendaquirozmac](https://linkedin.com/in/brendaquirozmac)
-- **GitHub**: [@brendaquiroz](https://github.com/brendaquiroz)
+- **GitHub**: [@brendaquiroz](https://github.com/brendaquirozc)
 - **Ubicación**: Mazatlán, Sinaloa, México
 
 ---

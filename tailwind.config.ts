@@ -15,13 +15,13 @@ const config: Config = {
         'sand': '#E8DDD0',
         
         // Pantone 2025 inspired
-        'mocha': '#A47764',
+        'mocha': '#94452ed9',
         'mocha-light': '#C9A896',
         'mocha-dark': '#8B6352',
         
         // Accent colors - soft and sophisticated
         'peach': '#FFB5A7',
-        'coral': '#F88379',
+        'coral': '#ea8532',
         'terracotta': '#E07A5F',
         'sage': '#9BB89F',
         
@@ -33,6 +33,13 @@ const config: Config = {
         // Pure tones
         'off-white': '#FEFEFE',
         'off-black': '#1A1A1A',
+
+        //greens
+        'green-light': '#9bb89f',
+        'green-dark': '#376147',
+
+        'accent-green': '#376147d9',
+        'accent-gold': '#ce605f',
       },
       fontFamily: {
         'display': ['Zodiak', 'Fraunces', 'serif'], // Editorial display font

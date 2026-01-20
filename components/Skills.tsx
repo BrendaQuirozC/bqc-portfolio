@@ -12,39 +12,54 @@ interface Skill {
 const skills: Skill[] = [
   // Front-End
   { name: 'React', category: 'Frontend' },
-  { name: 'TypeScript', category: 'Frontend' },
   { name: 'Next.js', category: 'Frontend' },
   { name: 'JavaScript', category: 'Frontend' },
   { name: 'HTML/CSS3', category: 'Frontend' },
   { name: 'Tailwind', category: 'Frontend' },
+  { name: 'React Native', category: 'Frontend' },
   
   // Back-End
   { name: 'Node.js', category: 'Backend' },
-  { name: 'PHP', category: 'Backend' },
+  { name: 'Javascript', category: 'Backend' },
+  { name: 'TypeScript', category: 'Backend' },
   { name: 'API REST', category: 'Backend' },
   
   // Database
   { name: 'SQL', category: 'Database' },
   { name: 'MongoDB', category: 'Database' },
+  { name: 'Redis', category: 'Database' },
   
   // Tools
-  { name: 'Figma', category: 'Tools' },
-  { name: 'Git/GitHub', category: 'Tools' },
-  { name: 'Cursor AI', category: 'Tools' },
-  { name: 'Firebase', category: 'Tools' },
   { name: 'Jira', category: 'Tools' },
+  { name: 'Figma', category: 'Tools' },
+  { name: 'Cursor AI', category: 'Tools' },
+  { name: 'Droid', category: 'Tools' },
+
+  //DevOPs
+  { name: 'Git/GitHub', category: 'DevOps' },
+  { name: 'Docker', category: 'DevOps' },
+  { name: 'Firebase', category: 'DevOps' },
+  { name: 'DigitalOcean', category: 'DevOps' },
+  { name: 'AWS', category: 'DevOps' }, 
   
-  // Bonus
+  //Metodologies
+  { name: 'Scrum', category: 'Metodologies' },
+  { name: 'Code Review', category: 'Metodologies' },
+
+  // Data Analytics
   { name: 'Python', category: 'Data' },
   { name: 'R', category: 'Data' },
+  { name: 'Advanced Excel', category: 'Data' },
 ]
 
 const categories = [
   { name: 'Frontend', title: 'Front-End Specialist', color: 'accent-green' },
   { name: 'Backend', title: 'Back-End', color: 'accent-gold' },
   { name: 'Database', title: 'Database', color: 'accent-green' },
+  { name: 'DevOps', title: 'DevOps', color: 'accent-gold' },
   { name: 'Tools', title: 'Tools & Design', color: 'accent-gold' },
-  { name: 'Data', title: 'Bonus Skills', color: 'accent-green' },
+  { name: 'Data', title: 'Data Analytics', color: 'accent-green' },
+  { name: 'Metodologies', title: 'Metodologies', color: 'accent-gold' },
 ]
 
 function SkillBadge({ skill, index }: { skill: Skill; index: number }) {
@@ -56,11 +71,11 @@ function SkillBadge({ skill, index }: { skill: Skill; index: number }) {
       transition={{ duration: 0.3, delay: index * 0.05 }}
       whileHover={{ 
         scale: 1.1,
-        boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)'
+        boxShadow: '0 0 20px #9bb89f'
       }}
-      className="skill-icon bg-secondary-bg border border-border-subtle rounded-lg px-4 py-3 text-center cursor-pointer group"
+      className="skill-icon border border-border-subtle rounded-lg px-4 py-3 text-center group bg-green-light text-white"
     >
-      <span className="font-mono text-sm md:text-base text-text-primary group-hover:text-accent-green transition-colors duration-300">
+      <span className="font-mono text-sm md:text-base text-off-white group-hover:text-off-white transition-colors duration-300">
         {skill.name}
       </span>
     </motion.div>

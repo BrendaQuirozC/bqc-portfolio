@@ -284,6 +284,9 @@ img:hover {
 }
 
 /********Hero********/
+.container-main {
+  padding-top: 67px;
+}
 .photo-placeholder {
   align-content: center;
   width: 100%;
@@ -291,4 +294,59 @@ img:hover {
   align-self: center;
   text-align: center;
   justify-self: center;
+}
+
+/********Footer********/
+
+.footer-img-div {
+  height: 46px;
+  padding-bottom: 17px;
+}
+
+.footer-img-text {
+  color: #a47764;
+  font-size: 12px;
+}
+
+
+@media (max-width: 1023px) {
+  .photo-placeholder {
+    align-self: flex-start;
+    justify-self: flex-end;
+    margin-right: 0;
+    max-width: 250px;
+    margin-top: -160px; /* Pull it up if needed to align right */
+    height: 325px;
+  }
+
+  .img-content {
+    padding: 0;
+  }
+
+  .socialmedia-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .social-url {
+    display: inline-block !important;
+    font-size: 0.875rem; /* 14px */
+    color: #3D405B;
+  }
+}
+@media (max-width: 640px) {
+  .photo-placeholder {
+    align-self: flex-start;
+    justify-self: center;
+    margin-right: 0;
+    max-width: 250px;
+    margin-top: 0px;
+    height: 325px;
+  }
 }

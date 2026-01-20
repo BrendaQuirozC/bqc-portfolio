@@ -48,63 +48,32 @@ export default function About() {
               </h2>
             </div>
 
-            <div className="space-y-6 text-text-secondary text-base md:text-lg leading-relaxed">
+            <div className="space-y-6 text-text-secondary text-base md:text-lg leading-relaxed text-justify">
               <p>
-                Soy <span className="text-accent-green font-semibold">Desarrolladora Full Stack especializada en Front-End</span> con 
-                una base sólida en <span className="text-text-primary">Matemáticas Aplicadas</span>. Esta combinación única 
-                me permite abordar problemas complejos desde múltiples perspectivas.
+                I'm a <span className="text-accent-gold font-semibold">Front-End Web Developer</span>  with 7+ years of experience specializing in React, Node.js, and TypeScript. Proven track record in building and maintaining high-performance websites and admin panels. Strong background in Applied Mathematics and Computing, combining analytical thinking with modern development practices. Experienced in full-stack development, database management (SQL/MongoDB), and UX collaboration. Continuously leveraging AI-powered tools to enhance productivity and code quality.
               </p>
-
               <p>
-                Desde <span className="text-accent-green">2019</span>, trabajo en <span className="text-text-primary">DISO/Global Tech Operations</span>, 
-                donde lidero el desarrollo de plataformas web y paneles administrativos que manejan miles de usuarios. 
-                Mi experiencia abarca desde la creación de interfaces intuitivas hasta la implementación de 
-                arquitecturas backend escalables.
-              </p>
-
+                My key soft skills include <span className="text-accent-green font-semibold">continuous learning</span>, self-taught, adaptability to new technologies and strong <span className="text-accent-green font-semibold">analytical thinking and problem solving </span> abilities.
+              </p>  
+              {/* im a certified yoga teacher */}
               <p>
-                Lo que me distingue es mi capacidad para <span className="text-text-primary">combinar análisis de datos 
-                con diseño de interfaces</span>. Mi background en Data Science me permite crear soluciones que no solo 
-                se ven bien, sino que están fundamentadas en datos y resuelven problemas reales.
+                I'm also a certified <span className="text-accent-green font-semibold">Yoga teacher</span>, so I truly value the balance between work and physical and mental well-being.
               </p>
-
-              {/* Highlight box */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="glass p-6 rounded-lg border-l-4 border-accent-green mt-8"
-              >
-                <p className="text-text-primary italic">
-                  "Combino análisis de datos con diseño de interfaces para crear soluciones 
-                  que no solo se ven bien, sino que resuelven problemas reales."
-                </p>
-              </motion.div>
 
               {/* Quick facts */}
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="glass p-4 rounded-lg">
-                  <div className="text-accent-green font-mono text-3xl font-bold mb-2">6+</div>
-                  <div className="text-text-secondary text-sm">Años de experiencia</div>
-                </div>
-                <div className="glass p-4 rounded-lg">
-                  <div className="text-accent-gold font-mono text-3xl font-bold mb-2">10+</div>
-                  <div className="text-text-secondary text-sm">Proyectos completados</div>
-                </div>
-                <div className="glass p-4 rounded-lg">
                   <div className="text-accent-green font-mono text-3xl font-bold mb-2">4</div>
-                  <div className="text-text-secondary text-sm">Idiomas</div>
+                  <div className="text-text-secondary text-sm">Languages</div>
                 </div>
                 <div className="glass p-4 rounded-lg">
                   <div className="text-accent-gold font-mono text-3xl font-bold mb-2">BSc</div>
-                  <div className="text-text-secondary text-sm">Matemáticas Aplicadas</div>
+                  <div className="text-text-secondary text-sm">Applied Maths and Computing</div>
                 </div>
               </div>
 
               <p className="text-sm">
-                Cuando no estoy programando, me encontrarás aprendiendo nuevos idiomas 
-                (actualmente japonés 🇯🇵), experimentando con nuevas tecnologías como Cursor AI, 
-                o explorando las últimas tendencias en UX/UI design.
+                When I'm not programming, you'll find me giving yoga classes, practicing other hobbies like running and playing music, learning new languages (currently Japanese 🇯🇵) or exploring the latest trends in UX/UI design.
               </p>
             </div>
           </motion.div>

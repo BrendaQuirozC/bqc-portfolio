@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
   const { scrollYProgress } = useScroll()
   
@@ -12,13 +11,6 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show navbar after scrolling 100px
-      if (window.scrollY > 100) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-
       // Update active section based on scroll position
       const sections = ['hero', 'projects', 'about', 'skills', 'contact']
       const scrollPosition = window.scrollY + 200
@@ -60,9 +52,7 @@ export default function Navbar() {
 
       {/* Navbar */}
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: isVisible ? 0 : -100 }}
-        transition={{ duration: 0.3 }}
+        initial={{ y: 0 }}
         className="fixed top-0 left-0 right-0 z-50 glass border-b border-border-subtle"
       >
         <div className="container-custom px-6">
@@ -73,7 +63,7 @@ export default function Navbar() {
               className="font-mono font-bold text-xl text-text-primary hover:text-accent-green transition-colors duration-300"
             >
               <span className="text-accent-green">{'<'}</span>
-              BQ
+              BQC
               <span className="text-accent-green">{'/>'}</span>
             </button>
 
@@ -83,7 +73,7 @@ export default function Navbar() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`font-mono text-sm transition-all duration-300 relative group ${
+                  className={` text-sm transition-all duration-300 relative group ${
                     activeSection === item.id
                       ? 'text-accent-green'
                       : 'text-text-secondary hover:text-text-primary'
