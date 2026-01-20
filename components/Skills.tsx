@@ -146,7 +146,7 @@ export default function Skills() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <p className="text-text-secondary text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary text-base md:text-sm max-w-2xl mx-auto">
             Constantly learning and adapting to new technologies. 
             My background in <span className="text-accent-green">Mathematics and Data Science</span> gives me 
             a unique advantage in web development.
