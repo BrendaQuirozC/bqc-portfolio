@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { scrollYProgress } = useScroll()
   
   const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
@@ -32,7 +33,20 @@ export default function Navbar() {
   }, [])
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    // Close mobile menu first
+    setIsMobileMenuOpen(false)
+    
+    // Small delay to ensure menu closes before scroll
+    setTimeout(() => {
+      const element = document.getElementById(id)
+      if (element) {
+        // Use scrollIntoView with block start - CSS scroll-margin-top will handle the offset
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }, 150)
   }
 
   const navItems = [
@@ -92,16 +106,55 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               className="md:hidden text-text-primary hover:text-accent-green transition-colors duration-300"
-              onClick={() => {
-                // Toggle mobile menu - implement if needed
-              }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {isMobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        <motion.div
+          initial={false}
+          animate={{
+            height: isMobileMenuOpen ? 'auto' : 0,
+            opacity: isMobileMenuOpen ? 1 : 0,
+          }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="md:hidden overflow-hidden"
+        >
+          <div className="glass border-t border-border-subtle px-6 py-4">
+            <div className="flex flex-col gap-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-sm transition-all duration-300 relative group text-left py-2 ${
+                    activeSection === item.id
+                      ? 'text-accent-green'
+                      : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                >
+                  {item.label}
+                  <span
+                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-accent-green transition-transform duration-300 origin-left ${
+                      activeSection === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </motion.nav>
     </>
   )

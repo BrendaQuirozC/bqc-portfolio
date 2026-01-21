@@ -15,6 +15,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Scroll offset for fixed navbar */
+section[id] {
+  scroll-margin-top: 64px; /* Navbar height */
+}
+
 body {
   background-color: #FFF8F0;
   color: #3D405B;
@@ -236,6 +241,12 @@ body::before {
 /* Section spacing - generous and modern */
 .section-padding {
   @apply py-24 px-6 md:px-12 lg:px-24;
+}
+
+.container-about {
+  width: 100%;
+  padding: 15px 39px;
+  max-width: 100%;
 }
 
 /* Container with asymmetric max width */

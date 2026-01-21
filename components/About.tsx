@@ -9,7 +9,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="about" className="section-padding bg-secondary-bg/30">
+    <section id="about" className="container-about bg-secondary-bg/30">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image side */}
@@ -23,8 +23,8 @@ export default function About() {
             {/* Photo placeholder with decorative border */}
             <div className="relative w-full aspect-square max-w-md mx-auto">
               {/* Decorative border */}
-              <div className="absolute -inset-4 border-2 border-accent-green rounded-lg rotate-3"></div>
-              <div className="absolute -inset-4 border-2 border-accent-gold/50 rounded-lg -rotate-3"></div>
+              <div className="absolute -inset-0 border-2 border-accent-green rounded-lg rotate-3"></div>
+              <div className="absolute -inset-0 border-2 border-accent-gold/50 rounded-lg -rotate-3"></div>
               
               {/* Photo container */}
               <div className="relative w-full h-full bg-gradient-to-br from-accent-green/20 to-accent-gold/20 rounded-lg overflow-hidden">

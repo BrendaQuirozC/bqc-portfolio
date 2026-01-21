@@ -247,7 +247,7 @@ export default function Hero() {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -bottom-4 -left-4 glass-dark px-4 py-2 rounded-xl shadow-lg"
               >
-                <span className="text-xs font-mono text-coral">UX/Typescript</span>
+                <span className="text-xs font-mono text-coral">📍 México</span>
               </motion.div>
             </div>
           </motion.div>
