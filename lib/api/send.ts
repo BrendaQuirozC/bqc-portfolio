@@ -12,7 +12,7 @@ export interface ContactResponse {
 export async function sendContactMessage(
   data: ContactFormData
 ): Promise<ContactResponse> {
-  const response = await fetch('/api/contact', {
+  const response = await fetch('/api/send', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -28,9 +28,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    await resend.emails.send({
+    console.log('Attempting to send email via Resend...')
+    console.log('From:', process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev')
+    console.log('To: brendaqc.contact@gmail.com')
+    
+    const result = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: 'brendaqc@hotmail.com',
+      to: 'brendaqc.contact@gmail.com',
       subject: 'portfolio message',
       html: `
         <h2>New Contact Form Submission</h2>
@@ -49,8 +53,29 @@ export async function POST(request: NextRequest) {
       replyTo: email, // So you can reply directly to the sender
     })
 
+    console.log('Resend API response:', JSON.stringify(result, null, 2))
+
+    // Check if Resend returned an error
+    if (result.error) {
+      console.error('Resend API error:', result.error)
+      return NextResponse.json(
+        { error: result.error.message || 'Failed to send email via Resend', details: result.error },
+        { status: 500 }
+      )
+    }
+
+    if (!result.data) {
+      console.error('Resend returned no data:', result)
+      return NextResponse.json(
+        { error: 'Resend API returned unexpected response', details: result },
+        { status: 500 }
+      )
+    }
+
+    console.log('Email sent successfully. Resend ID:', result.data.id)
+
     return NextResponse.json(
-      { message: 'Email sent successfully' },
+      { message: 'Email sent successfully', id: result.data?.id },
       { status: 200 }
     )
   } catch (error) {

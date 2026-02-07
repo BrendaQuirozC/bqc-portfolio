@@ -49,7 +49,7 @@ export default function Footer() {
             </a>
             <span>•</span>
             <a
-              href="mailto:brendaqc@hotmail.com"
+              href="mailto:brendaqc.contact@gmail.com"
               className="hover:text-accent-green transition-colors duration-300"
             >
               Email

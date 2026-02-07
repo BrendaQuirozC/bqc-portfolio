@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { sendContactMessage } from '@/lib/api/contact'
+import { sendContactMessage } from '@/lib/api/send'
 
 export default function Contact() {
   const ref = useRef(null)

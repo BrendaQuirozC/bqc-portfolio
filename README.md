@@ -185,10 +185,10 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 ## 👩‍💻 Contacto
 
-- **Email**: brendaqc@hotmail.com
-- **LinkedIn**: [linkedin.com/in/brendaquirozmac](https://linkedin.com/in/brendaquirozmac)
-- **GitHub**: [@brendaquiroz](https://github.com/brendaquirozc)
-- **Ubicación**: Mazatlán, Sinaloa, México
+- **Email**: youemail@yourdomain.com
+- **LinkedIn**: [linkedin.com/in/yourprofile]
+- **GitHub**: [@yourgithub]
+- **Ubicación**: México
 
 ---
 

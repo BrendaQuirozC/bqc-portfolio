@@ -73,7 +73,7 @@ export default function About() {
               </div>
 
               <p className="text-sm">
-                When I'm not programming, you'll find me giving yoga classes, practicing other hobbies like running and playing music, learning new languages (currently Japanese 🇯🇵) or exploring the latest trends in UX/UI design.
+                When I'm not programming, you'll find me exploring the latest trends in UX/UI design, giving yoga classes, practicing other hobbies like running and playing music or learning new languages (currently Japanese 🇯🇵).
               </p>
             </div>
           </motion.div>
