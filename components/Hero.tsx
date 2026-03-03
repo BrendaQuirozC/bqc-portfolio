@@ -210,7 +210,7 @@ export default function Hero() {
                 {!photoError && (
                   <Fragment>
                     <Image 
-                      src="/me.jpg"
+                      src="/img/me.jpg"
                       alt="Brenda Quiroz"
                       width={500}
                       height={500}

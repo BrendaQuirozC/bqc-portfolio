@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-
+import Image from 'next/image'
+import { Parallax } from 'react-scroll-parallax';
 interface Project {
   title: string
   description: string
@@ -15,36 +16,35 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Enterprise Admin Panel',
-    description: 'Complete business management system with interactive dashboard, user management, and real-time data visualization. Implemented with scalable architecture and responsive design.',
-    tags: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
-    demoLink: '#',
-    githubLink: '#',
-    image: '/project1.jpg'
+    title: 'Bunny Café Data Analytics',
+    description: 'Data analytics platform for a Café. Analyze sales data, customer behavior, and inventory levels to optimize operations and improve customer satisfaction.',
+    tags: ['React', 'TypeScript', 'Tailwind', 'Figma'],
+    demoLink: 'https://bunny-coffeeshop-dashboard.pages.dev/',
+    githubLink: 'https://github.com/BrendaQuirozC/bunny-coffeeshop-dashboard',
+    image: '/img/bunny.png'
+  },
+
+  {
+    title: 'Pina Yoga Studio Website & UX Design',
+    description: 'Yoga studio website designed from Figma to code. Focus on user experience, accessibility, and performance optimization. Includes custom language and dark mode.',
+    tags: ['Next.js', 'Figma', 'Tailwind'],
+    image: ''
+  }
+]
+
+const workProjects: Project[] = [
+  {
+    title: 'Priam Digital Website',
+    description: 'In collaboration with GTO (Global Tech Operations) working on it for more than four years, a website for the distribution and management of music to different Digital Service Providers, for artists as well as for companies.',
+    tags: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'RESTful API', 'API Postman'],
+    demoLink: 'https://studio.priamdigital.com/',
+    image: '/img/priam.png'
   },
   {
-    title: 'Corporate Website & UX Design',
-    description: 'Corporate website designed from Figma to code. Focus on user experience, accessibility, and performance optimization. Includes custom animations and dark mode.',
-    tags: ['Next.js', 'Figma', 'Tailwind', 'Framer Motion'],
-    demoLink: '#',
-    githubLink: '#',
-    image: '/project2.jpg'
-  },
-  {
-    title: 'Data Visualization Dashboard',
-    description: 'Data analysis and visualization platform with interactive charts. Machine learning integration for predictions and trend analysis. Data Science background applied to web development.',
-    tags: ['React', 'Python', 'D3.js', 'FastAPI'],
-    demoLink: '#',
-    githubLink: '#',
-    image: '/project3.jpg'
-  },
-  {
-    title: 'AI-Powered Code Assistant',
-    description: 'Experimental project using Cursor AI and latest technologies. AI-powered code assistant that helps in web application development and debugging.',
-    tags: ['Next.js 14', 'Cursor AI', 'OpenAI', 'TypeScript'],
-    demoLink: '#',
-    githubLink: '#',
-    image: '/project4.jpg'
+    title: 'Observatorio 1873 CRM System',
+    description: 'In collaboration with GTO, a CRM system for the management of promotions and campaigns projects of the "Observatorio 1873" touristic park in Mazatlán, Mexico.',
+    tags: ['React', 'Node.js', 'TypeScript', 'MySQL', 'RESTful API'],
+    image: '/img/observatorio.png'
   }
 ]
 
@@ -63,13 +63,23 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       {/* Project image placeholder */}
       <div className="relative h-64 bg-gradient-to-br from-accent-green/20 to-accent-gold/20 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-            className="text-6xl font-mono text-accent-green/30"
-          >
-            {'{ }'}
-          </motion.div>
+          {project.image ?
+            <Parallax speed={-8}>
+              <img 
+                src={project.image}
+                alt={project.title}
+                
+              />
+            </Parallax>
+          :
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+              className="text-6xl font-mono text-accent-green/30"
+            >
+              {'{ }'}
+            </motion.div>
+          }
         </div>
         {/* Overlay on hover */}
         <div className="absolute inset-0 bg-primary-bg/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
@@ -172,14 +182,29 @@ export default function Projects() {
               Featured Projects
             </h2>
           </div>
-          <p className="text-text-secondary text-lg ml-8">
-            Some of my most outstanding projects
+          <p className="pt-8 text-coral text-text-secondary text-lg ml-8">
+            Outstanding personal projects 
           </p>
         </motion.div>
-
-        {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
+        </div>
+        
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <p className="pt-8 text-coral text-text-secondary text-lg ml-8">
+            Outstanding work projects I've collaborated on
+          </p>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {workProjects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
