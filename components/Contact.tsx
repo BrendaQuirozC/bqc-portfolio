@@ -81,14 +81,13 @@ export default function Contact() {
           </div>
 
           {/* Contact form */}
-          <motion.form
+          {/* <motion.form
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             onSubmit={handleSubmit}
             className="glass p-8 rounded-xl space-y-6"
           >
-            {/* Name input */}
             <div>
               <label htmlFor="name" className="block text-text-primary font-mono mb-2">
                 Name
@@ -105,7 +104,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* Email input */}
             <div>
               <label htmlFor="email" className="block text-text-primary font-mono mb-2">
                 Email
@@ -122,7 +120,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* Message textarea */}
             <div>
               <label htmlFor="message" className="block text-text-primary font-mono mb-2">
                 Message
@@ -138,8 +135,6 @@ export default function Contact() {
                 placeholder="Tell me about your project..."
               />
             </div>
-
-            {/* Submit button */}
             <motion.button
               type="submit"
               disabled={status === 'sending'}
@@ -152,7 +147,7 @@ export default function Contact() {
               {status === 'sent' && '✓ Message Sent'}
               {status === 'error' && 'Error - Try again'}
             </motion.button>
-          </motion.form>
+          </motion.form> */}
 
           {/* Social links */}
           <motion.div
@@ -161,7 +156,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 text-center"
           >
-            <p className="text-text-secondary mb-6">Find me online:</p>
+            <p className="text-text-secondary mb-6">Find me online or send an email:</p>
             <div className="flex justify-center gap-6">
               <a
                 href="https://github.com/brendaquirozc"
@@ -189,6 +184,18 @@ export default function Contact() {
                 </div>
               </a>
               
+              <a 
+                href="mailto:brendaqc.contact@gmail.com"
+                className="group"
+                rel="noopener noreferrer"
+                aria-label="Email"
+              >
+                <div className="bg-secondary-bg border border-border-subtle rounded-full p-4 group-hover:border-accent-green transition-all duration-300">
+                <svg className="w-6 h-6 text-text-secondary group-hover:text-accent-green transition-colors duration-300" fill="none" stroke="#3e405b" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                </div>
+              </a>
             </div>
           </motion.div>
         </motion.div>
