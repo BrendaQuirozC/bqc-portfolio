@@ -192,4 +192,4 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 ---
 
-Diseñado y desarrollado con ♥ por Brenda Quiroz Catalán
+Diseñado y desarrollado por Brenda Quiroz Catalán 🐰

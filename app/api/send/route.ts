@@ -30,11 +30,10 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     console.log('Attempting to send email via Resend...')
     console.log('From:', process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev')
-    console.log('To: brendaqc.contact@gmail.com')
     
     const result = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: 'brendaqc.contact@gmail.com',
+      to: 'brendaqc@hotmail.com',
       subject: 'portfolio message',
       html: `
         <h2>New Contact Form Submission</h2>

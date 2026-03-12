@@ -56,7 +56,7 @@ export default function Hero() {
               className="inline-block mb-6"
             >
               <span className="glass px-4 py-2 rounded-full text-sm font-medium text-mocha inline-flex items-center gap-2">
-                <span className="w-2 h-2 bg-coral rounded-full animate-pulse"></span>
+                <span className="w-2 h-2 bg-green-light rounded-full animate-pulse"></span>
                 Available for opportunities
               </span>
             </motion.div>

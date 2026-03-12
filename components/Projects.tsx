@@ -26,9 +26,11 @@ const projects: Project[] = [
 
   {
     title: 'Pina Yoga Studio Website & UX Design',
-    description: 'Yoga studio website designed from Figma to code. Focus on user experience, accessibility, and performance optimization. Includes custom language and dark mode.',
+    description: 'Yoga studio website designed from Figma to code. Focus on user experience, accessibility, and performance optimization. Includes custom language in english and spanish.',
     tags: ['Next.js', 'Figma', 'Tailwind'],
-    image: ''
+    demoLink: 'https://yoga-studio-7f6.pages.dev/',
+    githubLink: 'https://github.com/BrendaQuirozC/yoga-studio',
+    image: '/img/yoga.png'
   }
 ]
 
